@@ -1,11 +1,25 @@
 spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/testdb
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: '${custom.db.username}'
+    password: '${custom.db.password}'
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    properties:
+      hibernate:
+        show-sql: true
+        format-sql: true
+    hibernate:
+      ddl-auto: create
   mail:
     host: smtp.gmail.com
     port: 587
-    username: '${custom.main.username}'
+    username: '${custom.mail.username}'
     password: '${custom.mail.password}'
     properties:
       mail.smtp.debug: true
       mail.smtp.connectiontimeout: 1000 #1초
       mail.starttls.enable: true
       mail.smtp.auth: true
+
